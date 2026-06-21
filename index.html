@@ -1,213 +1,197 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>YaduStream</title>
-  <style>
-    /* ==========================================
-       [CSS STYLES] - Theme and Layout Configuration
-       ========================================== */
-    :root {
-      --bg-dark: #121212;
-      --card-bg: #1e1e1e;
-      --text-main: #ffffff;
-      --text-muted: #aaaaaa;
-      --accent-red: #ff3b30;
-      --accent-black: #000000;
-      --accent-white: #ffffff;
-      --border-color: #333333;
-    }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background-color: var(--bg-dark);
-      color: var(--text-main);
-      margin: 0;
-      padding: 0;
-    }
-    .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-    .card { background: var(--card-bg); border-radius: 12px; padding: 20px; margin-bottom: 20px; border: 1px solid var(--border-color); }
-    .hidden { display: none !important; }
-    h2, h3 { margin-top: 0; }
-    
-    /* Inputs & Buttons */
-    input, textarea, select {
-      width: 100%; padding: 10px; margin: 8px 0 16px 0;
-      background: #2a2a2a; border: 1px solid var(--border-color);
-      color: white; border-radius: 6px; box-sizing: border-box;
-    }
-    button {
-      width: 100%; padding: 12px; border: none; border-radius: 6px;
-      font-weight: bold; cursor: pointer; transition: 0.2s; margin-bottom: 8px;
-    }
-    .btn-primary { background-color: #007aff; color: white; }
-    .btn-google { background-color: white; color: black; }
-    .btn-danger { background-color: var(--accent-red); color: white; }
-    .link-btn { background: none; color: #007aff; border: none; padding: 0; width: auto; font-size: 14px; text-decoration: underline; margin-top: 5px; display: block;}
-    
-    /* Navigation Bar */
-    .nav-bar { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); padding-bottom: 10px; margin-bottom: 20px; }
-    .nav-user { font-size: 14px; color: var(--text-muted); }
-    
-    /* Media & Feed Styling */
-    .feed-item { background: #1a1a1a; border: 1px solid var(--border-color); border-radius: 8px; padding: 15px; margin-bottom: 15px; }
-    .media-placeholder { background: #333; height: 180px; border-radius: 6px; display: flex; align-items: center; justify-content: center; margin-top: 10px; color: var(--text-muted); font-size: 14px; text-align: center; font-weight: bold;}
-    .short-media { height: 320px; max-width: 220px; margin: 10px auto; background: #252525; }
-    
-    /* Theme Injectors */
-    body.theme-red { background-color: #2b0d0d; }
-    body.theme-red .card { background-color: #4a1515; }
-    body.theme-black { background-color: #000000; }
-    body.theme-black .card { background-color: #111111; }
-    body.theme-white { background-color: #f5f5f7; color: #000000; }
-    body.theme-white .card { background-color: #ffffff; border-color: #dddddd; color: #000000; }
-    body.theme-white input, body.theme-white textarea, body.theme-white select { background: #eeeeee; color: black; border-color: #cccccc; }
-
-    /* Poll Elements */
-    .poll-opt { background: #2a2a2a; padding: 10px; margin: 5px 0; border-radius: 4px; cursor: pointer; border: 1px solid var(--border-color); }
-    body.theme-white .poll-opt { background: #eee; }
-    .strike-alert { background: rgba(255,59,48,0.2); border: 1px solid var(--accent-red); padding: 10px; border-radius: 6px; color: #ff453a; font-weight: bold; margin-bottom: 15px; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YaduStream</title>
+    <style>
+        /* ==========================================
+           [CSS STYLES] - Theme and Layout Configuration
+           ========================================== */
+        :root {
+            --bg-dark: #121212;
+            --card-bg: #1e1e1e;
+            --text-main: #ffffff;
+            --text-muted: #aaaaaa;
+            --accent-red: #ff3b30;
+            --accent-black: #000000;
+            --accent-white: #ffffff;
+            --border-color: #333333;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+        }
+        .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+        .card { background: var(--card-bg); border-radius: 12px; padding: 20px; margin-bottom: 20px; border: 1px solid var(--border-color); }
+        .hidden { display: none !important; }
+        h2, h3 { margin-top: 0; }
+        
+        /* Inputs & Buttons */
+        input, textarea, select {
+            width: 100%; padding: 10px; margin: 8px 0 16px 0;
+            background: #2a2a2a; border: 1px solid var(--border-color);
+            color: white; border-radius: 6px; box-sizing: border-box;
+        }
+        button {
+            width: 100%; padding: 12px; border: none; border-radius: 6px;
+            font-weight: bold; cursor: pointer; transition: 0.2s; margin-bottom: 8px;
+        }
+        .btn-primary { background-color: #007aff; color: white; }
+        .btn-google { background-color: white; color: black; }
+        .btn-danger { background-color: var(--accent-red); color: white; }
+        .link-btn { background: none; color: #007aff; border: none; padding: 0; width: auto; font-size: 14px; text-decoration: underline; margin-top: 5px; display: block;}
+        
+        /* Navigation Bar */
+        .nav-bar { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); padding-bottom: 10px; margin-bottom: 20px; }
+        .nav-user { font-size: 14px; color: var(--text-muted); }
+        
+        /* Media & Feed Styling */
+        .feed-item { background: #1a1a1a; border: 1px solid var(--border-color); border-radius: 8px; padding: 15px; margin-bottom: 15px; }
+        .media-placeholder { background: #333; height: 180px; border-radius: 6px; display: flex; align-items: center; justify-content: center; margin-top: 10px; color: var(--text-muted); font-size: 14px; text-align: center; font-weight: bold;}
+        .short-media { height: 320px; max-width: 220px; margin: 10px auto; background: #252525; }
+        
+        /* Theme Injectors */
+        body.theme-red { background-color: #2b0d0d; }
+        body.theme-red .card { background-color: #4a1515; }
+        body.theme-black { background-color: #000000; }
+        body.theme-black .card { background-color: #111111; }
+        body.theme-white { background-color: #f5f5f7; color: #000000; }
+        body.theme-white .card { background-color: #ffffff; border-color: #dddddd; color: #000000; }
+        body.theme-white input, body.theme-white textarea, body.theme-white select { background: #eeeeee; color: black; border-color: #cccccc; }
+        
+        /* Poll Elements */
+        .poll-opt { background: #2a2a2a; padding: 10px; margin: 5px 0; border-radius: 4px; cursor: pointer; border: 1px solid var(--border-color); }
+        body.theme-white .poll-opt { background: #eee; }
+        .strike-alert { background: rgba(255,59,48,0.2); border: 1px solid var(--accent-red); padding: 10px; border-radius: 6px; color: #ff453a; font-weight: bold; margin-bottom: 15px; }
+    </style>
 </head>
 <body>
+    <div class="container">
+        <!-- Header Section -->
+        <div class="nav-bar">
+            <h1 style="margin:0;">🎥 YaduStream</h1>
+            <div id="userInfo" class="nav-user hidden">
+                <span id="userDisplay"></span>
+                <button onclick="app.logout()" class="link-btn" style="display:inline; margin-left:10px;">Logout</button>
+            </div>
+        </div>
+        <div id="strikeNotice" class="strike-alert hidden"></div>
 
-  <div class="container">
-    <!-- Header Section -->
-    <div class="nav-bar">
-      <h1 style="margin:0;">🎥 YaduStream</h1>
-      <div id="userInfo" class="nav-user hidden">
-        <span id="userDisplay"></span>
-        <button onclick="app.logout()" class="link-btn" style="display:inline; margin-left:10px;">Logout</button>
-      </div>
-    </div>
-
-    <div id="strikeNotice" class="strike-alert hidden"></div>
-
-    <!-- ==========================================
-       [HTML VIEWS] - Screens managed by Frontend State
-       ========================================== -->
-
-    <!-- VIEW 1: Authentication Screen -->
-    <div id="view-auth" class="card">
-      <h2 id="auth-title">Sign In</h2>
-      
-      <div id="credentials-fields">
-        <label>Email Address</label>
-        <input type="email" id="auth-email" placeholder="name@example.com">
-        
-        <div id="password-wrapper">
-          <label>Password</label>
-          <input type="password" id="auth-pass" placeholder="••••••••">
+        <!-- ==========================================
+           [HTML VIEWS] - Screens managed by Frontend State
+           ========================================== -->
+        <!-- VIEW 1: Authentication Screen -->
+        <div id="view-auth" class="card">
+            <h2 id="auth-title">Sign In</h2>
+            <div id="credentials-fields">
+                <label>Email Address</label>
+                <input type="email" id="auth-email" placeholder="name@example.com">
+                <div id="password-wrapper">
+                    <label>Password</label>
+                    <input type="password" id="auth-pass" placeholder="••••••••">
+                </div>
+                <div id="age-wrapper" class="hidden">
+                    <label>Age Verification (Must be 9-13 or 18+)</label>
+                    <input type="number" id="auth-age" placeholder="Enter your age">
+                </div>
+            </div>
+            <button id="main-auth-btn" class="btn-primary" onclick="app.handlePrimaryAuth()">Sign In with Email</button>
+            <button class="btn-google" onclick="app.handleGoogleAuth()">🌐 Continue with Google</button>
+            <button id="toggle-auth-link" class="link-btn" onclick="app.toggleAuthMode()">Don't have an account? Sign Up</button>
+            <button id="forgot-pass-link" class="link-btn" onclick="app.showForgotPasswordView()">Forgot Password?</button>
         </div>
 
-        <div id="age-wrapper" class="hidden">
-          <label>Age Verification (Must be 9-13 or 18+)</label>
-          <input type="number" id="auth-age" placeholder="Enter your age">
-        </div>
-      </div>
-
-      <button id="main-auth-btn" class="btn-primary" onclick="app.handlePrimaryAuth()">Sign In with Email</button>
-      <button class="btn-google" onclick="app.handleGoogleAuth()">🌐 Continue with Google</button>
-      
-      <button id="toggle-auth-link" class="link-btn" onclick="app.toggleAuthMode()">Don't have an account? Sign Up</button>
-      <button id="forgot-pass-link" class="link-btn" onclick="app.showForgotPasswordView()">Forgot Password?</button>
-    </div>
-
-    <!-- VIEW 2: 2FA Verification Screen -->
-    <div id="view-2fa" class="card hidden">
-      <h2>Two-Step Verification</h2>
-      <p>To verify it's you, we sent a security code to your registered mobile number.</p>
-      <label>Enter 6-Digit Verification Code</label>
-      <input type="text" id="verification-code" placeholder="123456" maxlength="6">
-      <button class="btn-primary" onclick="app.verifyTwoFactor()">Verify Code</button>
-      <button class="link-btn" onclick="app.changeView('auth')">Back to Sign In</button>
-    </div>
-
-    <!-- VIEW 3: Reset Password Screen -->
-    <div id="view-reset" class="card hidden">
-      <h2>Create New Password</h2>
-      <p>Verification complete. Please update your account credentials below.</p>
-      <label>New Password</label>
-      <input type="password" id="new-password" placeholder="Enter new password">
-      <button class="btn-primary" onclick="app.submitPasswordReset()">Save & Update Password</button>
-    </div>
-
-    <!-- VIEW 4: Main Social Dashboard Feed Screen -->
-    <div id="view-dashboard" class="hidden">
-      <!-- Create Post Console -->
-      <div class="card">
-        <h3>Create Content</h3>
-        <label>Content Type</label>
-        <select id="post-type" onchange="app.handlePostTypeChange()">
-          <option value="video">Standard Video (2-3 Minutes)</option>
-          <option value="short">Short Video Form</option>
-          <option value="poll">Interactive Poll</option>
-        </select>
-
-        <label>Caption / Title Text</label>
-        <textarea id="post-text" placeholder="Share what is happening..."></textarea>
-
-        <!-- Simulated Local File Access System -->
-        <div id="file-upload-section">
-          <label>Select Local Content Resource (Supports Video / Audio Files / MP3)</label>
-          <input type="file" id="post-file" accept="video/*,audio/mp3,audio/*">
+        <!-- VIEW 2: 2FA Verification Screen -->
+        <div id="view-2fa" class="card hidden">
+            <h2>Two-Step Verification</h2>
+            <p>To verify it's you, we sent a security code to your registered mobile number.</p>
+            <label>Enter 6-Digit Verification Code</label>
+            <input type="text" id="verification-code" placeholder="123456" maxlength="6">
+            <button class="btn-primary" onclick="app.verifyTwoFactor()">Verify Code</button>
+            <button class="link-btn" onclick="app.changeView('auth')">Back to Sign In</button>
         </div>
 
-        <!-- Simulated AI Safety Declaration Toggle -->
-        <div style="margin: 10px 0; background: #222; padding: 10px; border-radius: 6px; border: 1px solid #444;">
-          <input type="checkbox" id="ai-generator-flag" style="width:auto; margin:0 8px 0 0;">
-          <label for="ai-generator-flag" style="font-size:13px; color:#ff9500; font-weight:bold;">Is this asset created using Generative AI algorithms?</label>
+        <!-- VIEW 3: Reset Password Screen -->
+        <div id="view-reset" class="card hidden">
+            <h2>Create New Password</h2>
+            <p>Verification complete. Please update your account credentials below.</p>
+            <label>New Password</label>
+            <input type="password" id="new-password" placeholder="Enter new password">
+            <button class="btn-primary" onclick="app.submitPasswordReset()">Save & Update Password</button>
         </div>
 
-        <button class="btn-primary" onclick="app.publishPost()">Publish To Network</button>
-      </div>
+        <!-- VIEW 4: Main Social Dashboard Feed Screen -->
+        <div id="view-dashboard" class="hidden">
+            <!-- Create Post Console -->
+            <div class="card">
+                <h3>Create Content</h3>
+                <label>Content Type</label>
+                <select id="post-type" onchange="app.handlePostTypeChange()">
+                    <option value="video">Standard Video (2-3 Minutes)</option>
+                    <option value="short">Short Video Form</option>
+                    <option value="poll">Interactive Poll</option>
+                </select>
+                <label>Caption / Title Text</label>
+                <textarea id="post-text" placeholder="Share what is happening..."></textarea>
+                
+                <!-- Simulated Local File Access System -->
+                <div id="file-upload-section">
+                    <label>Select Local Content Resource (Supports Video / Audio Files / MP3)</label>
+                    <input type="file" id="post-file" accept="video/*,audio/mp3,audio/*">
+                </div>
+                
+                <!-- Simulated AI Safety Declaration Toggle -->
+                <div style="margin: 10px 0; background: #222; padding: 10px; border-radius: 6px; border: 1px solid #444;">
+                    <input type="checkbox" id="ai-generator-flag" style="width:auto; margin:0 8px 0 0;">
+                    <label for="ai-generator-flag" style="font-size:13px; color:#ff9500; font-weight:bold;">Is this asset created using Generative AI algorithms?</label>
+                </div>
+                <button class="btn-primary" onclick="app.publishPost()">Publish To Network</button>
+            </div>
 
-      <!-- Settings Customization Panel -->
-      <div class="card">
-        <h3>System Feed Customization</h3>
-        
-        <label>Select Application Theme (Tea Accents)</label>
-        <select id="setting-theme" onchange="app.updateTheme()">
-          <option value="black">Black Tea Mode (Deep Dark)</option>
-          <option value="red">Red Tea Mode (Warm Crimson)</option>
-          <option value="white">White Tea Mode (Clean Bright)</option>
-        </select>
+            <!-- Settings Customization Panel -->
+            <div class="card">
+                <h3>System Feed Customization</h3>
+                <label>Select Application Theme (Tea Accents)</label>
+                <select id="setting-theme" onchange="app.updateTheme()">
+                    <option value="black">Black Tea Mode (Deep Dark)</option>
+                    <option value="red">Red Tea Mode (Warm Crimson)</option>
+                    <option value="white">White Tea Mode (Clean Bright)</option>
+                </select>
+                <label>Challenge Filters (Control visible dashboard feed)</label>
+                <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px;">
+                    <div><input type="checkbox" id="filter-vlog" checked style="width:auto;"> Creator Vlogs</div>
+                    <div><input type="checkbox" id="filter-gaming" checked style="width:auto;"> Gaming</div>
+                    <div><input type="checkbox" id="filter-music" checked style="width:auto;"> Music Tracks</div>
+                    <div><input type="checkbox" id="filter-tech" checked style="width:auto;"> Technology</div>
+                </div>
+                <button class="btn-primary" style="margin-top:15px; background:#34c759;" onclick="app.saveFeedSettings()">Apply Feed Customization</button>
+            </div>
 
-        <label>Challenge Filters (Control visible dashboard feed)</label>
-        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px;">
-          <div><input type="checkbox" id="filter-vlog" checked style="width:auto;"> Creator Vlogs</div>
-          <div><input type="checkbox" id="filter-gaming" checked style="width:auto;"> Gaming</div>
-          <div><input type="checkbox" id="filter-music" checked style="width:auto;"> Music Tracks</div>
-          <div><input type="checkbox" id="filter-tech" checked style="width:auto;"> Technology</div>
-        </div>
-        <button class="btn-primary" style="margin-top:15px; background:#34c759;" onclick="app.saveFeedSettings()">Apply Feed Customization</button>
-      </div>
+            <!-- Active Content Stream Feed -->
 
-      <!-- Active Content Stream Feed -->
-      <h3>Subscribed Network Stream</h3>
-      <div id="app-stream-feed"></div>
-    </div>
+Subscribed Network Stream
 
-  </div>
 
-  <!-- ==========================================
-     [JAVASCRIPT, JSON & JAVA EMULATION ENGINE]
-     ========================================== -->
-  <script>
-    /**
-     * DATABASE SCHEMA LAYER (Simulating mock Database tables using JSON structures)
-     */
-    const INITIAL_DATABASE_JSON = {
-      "users": [
-        { "email": "test@yadustream.com", "password": "password123", "age": 22, "strikes": 0, "phone": "+15550199" }
-      ],
-      "globalFeed": [
-        { "id": 1, "type": "video", "author": "@AlphaCreator", "text": "Welcome to my launch vlog!", "challenge": "vlog", "file": "vlog_final.mp4" },
-        { "id": 2, "type": "short", "author": "@BeatDrop", "text": "Listen to this custom audio track loop 🎧", "challenge": "music", "file": "track.mp3" }
-      ]
-    };
 
-    // Initialize local database engine from browser state or initial configurations
+
+/**
+* DATABASE SCHEMA LAYER (Simulating mock Database tables using JSON structures)
+*/
+const INITIAL_DATABASE_JSON = {
+"users": [
+{ "email": "test@yadustream.com", "password": "password123", "age": 22, "strikes": 0, "phone": "+15550199" }
+],
+"globalFeed": [
+{ "id": 1, "type": "video", "author": "@AlphaCreator", "text": "Welcome to my launch vlog!", "challenge": "vlog", "file": "vlog_final.mp4" },
+{ "id": 2, "type": "short", "author": "@BeatDrop", "text": "Listen to this custom audio track loop 🎧", "challenge": "music", "file": "track.mp3" }
+]
+};
+// Initialize local database engine from browser state or initial configurations
 if (!localStorage.getItem("YADUSTREAM_DB")) {
 localStorage.setItem("YADUSTREAM_DB", JSON.stringify(INITIAL_DATABASE_JSON));
 }
@@ -356,7 +340,7 @@ this.loginSuccess(newUserObject);
 }
 handleGoogleAuth() {
 let db = JSON.parse(localStorage.getItem("YADUSTREAM_DB"));
-let googleMockUser = db.users;
+let googleMockUser = db.users[0]; // Resolves the array reference crash bug
 alert(Routing through Federated identity handshake protocols... Linked payload identity discovered: ${googleMockUser.email});
 this.loginSuccess(googleMockUser);
 }
@@ -418,12 +402,12 @@ let randomChallenges = ['vlog', 'gaming', 'music', 'tech'];
 let assignedChallenge = randomChallenges[Math.floor(Math.random() * randomChallenges.length)];
 let localFileNameMock = "no_file_attached.bin";
 if (type !== 'poll' && fileSelector.files.length > 0) {
-localFileNameMock = fileSelector.files.name;
+localFileNameMock = fileSelector.files[0].name;
 }
 let generatedPostNode = {
 id: Date.now(),
 type: type,
-author: @${this.state.currentUser.email.split('@')},
+author: @${this.state.currentUser.email.split('@')[0]},
 text: text,
 challenge: assignedChallenge,
 file: localFileNameMock,
@@ -455,7 +439,7 @@ const targetContainer = document.getElementById('app-stream-feed');
 let db = JSON.parse(localStorage.getItem("YADUSTREAM_DB"));
 let filteredItems = db.globalFeed.filter(item => this.state.activeFilters.includes(item.challenge));
 if (filteredItems.length === 0) {
-targetContainer.innerHTML = <p style="color:var(--text-muted); text-align:center;">No active stream elements match your custom channel options.</p>;
+targetContainer.innerHTML = 'No active stream elements match your custom channel options.';
 return;
 }
 targetContainer.innerHTML = filteredItems.map(item => {
@@ -465,7 +449,7 @@ innerMediaFragment = <div class="media-placeholder">🖥️ Video Player Element
 } else if (item.type === 'short') {
 innerMediaFragment = <div class="media-placeholder short-media">📱 Vertical Shorts Loop<br>[File: ${item.file}]</div>;
 } else if (item.type === 'poll') {
-innerMediaFragment = <div style="margin-top:10px;"> ${item.options.map(opt =>📊 ${opt}).join('')} </div>;
+innerMediaFragment = <div style="margin-top:10px;">${item.options.map(opt => 📊 ${opt}).join('')}</div>;
 }
 return <div class="feed-item"> <div style="display:flex; justify-content:space-between; font-size:12px; color:var(--text-muted);"> <strong>${item.author}</strong> <span>Filter Group: #${item.challenge.toUpperCase()}</span> </div> <p style="margin:10px 0 5px 0; font-size:16px;">${item.text}</p> ${innerMediaFragment} </div>;
 }).join('');
@@ -474,6 +458,8 @@ return <div class="feed-item"> <div style="display:flex; justify-content:space-b
 // Launch Application Runtime Core
 const app = new YaduStreamApplicationFramework();
 window.onload = () => app.init();
+
+
 
 
 
